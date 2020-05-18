@@ -1,0 +1,28 @@
+.widget {
+  float: left;
+  padding: 30px;
+}
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  border: 1px solid black;
+}
+th {
+  border: 1px solid black;
+}
+tr {
+  border: 1px solid black;
+}
+td {
+  border: 1px solid black;
+}
+
+.open-close-container {
+  border: 1px solid #dddddd;
+  margin-top: 1em;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+}

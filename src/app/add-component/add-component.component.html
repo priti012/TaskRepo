@@ -1,0 +1,35 @@
+
+<div class = "formClass">
+    <p>add Task Details!</p>
+  <form  #userForm="ngForm" name="myForm" action="/action_page.php" method="get">
+    <label class ="labelClass" for="text"> Text:</label>
+    <input type="text" id="text" name="text" [(ngModel)]="addTask.text" required #name="ngModel"><br><br>
+    <div *ngIf="name?.errors?.required && (name.dirty || name.touched)" class ="requireClass">
+      Task is required.
+    </div>
+    <label class ="labelClass" for="creator"> Creator:</label>
+    <input type="text" id="creator" name="creator" [(ngModel)]="addTask.creator" ><br><br>
+    <label class ="labelClass" for="start">Start Date:</label>
+    <input type="text" id="start" name="start" [(ngModel)]="addTask.start"  required #startDate="ngModel" ><br><br>
+      <div *ngIf="startDate?.errors?.required && (name.dirty || name.touched)" class ="requireClass">
+          startDate is required.
+      </div>
+    <label class ="labelClass" for="end"> End Date:</label>
+    <input type="text" id="end" name="end" [(ngModel)]="addTask.end" ><br><br>
+    <label class ="labelClass">Select Global status</label>
+    <select name="globalstatus" class="selectStatus" style="" [(ngModel)]="addTask.isGlobal" >
+      <option *ngFor = "let status of statusList" >{{status}}</option>
+    </select><br><br>
+    <label class ="labelClass">Select leader status</label>
+    <select name="leaderStatus" class="selectStatus" style="" [(ngModel)]="addTask.isLeader" >
+      <option *ngFor = "let status of statusList" >{{status}}</option>
+    </select><br><br>
+    <label class ="labelClass">Select completion status</label>
+    <select name="completionStatus" class="selectStatus" style="" [(ngModel)]="addTask.isCompleted" >
+      <option *ngFor = "let status of statusList">{{status}}</option>
+    </select><br><br>
+    <div class= "submitClass">
+      <input type="button" type="submit" (click)="formSubmit()" value="Send data to Add!" id="form-submit" routerLink="/Task">
+    </div>
+  </form>
+</div>

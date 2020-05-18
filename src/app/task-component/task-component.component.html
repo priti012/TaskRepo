@@ -1,0 +1,11 @@
+<div>
+  <div class = 'centreClass'>
+    <label class="labelClass">Filter data by Person/Global/other</label>
+    <select [(ngModel)]="selectedfield" class="custom-select" (ngModelChange)="filter($event)"> Filter
+      <option *ngFor="let field of fields" [ngValue]="field" (click)="filter($event)">{{field}}</option>
+      <option value="none" selected  disabled >filter here</option>
+    </select>
+  </div>
+  <app-widget [data]='taskData'>
+  </app-widget>
+</div>

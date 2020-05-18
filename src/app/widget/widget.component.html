@@ -1,0 +1,44 @@
+
+<div class="widget">
+  <h1>
+    {{heading}}
+  </h1>
+
+  <table>
+    <th>text</th>
+    <th>global</th>
+    <th>isLeader</th>
+    <th (click) ='sorting()' title="sorting by username">creator</th>
+    <th>isCompleted</th>
+    <th>start</th>
+    <th>end</th>
+    <tr *ngFor = 'let task of data; let ind = index;'>
+      <td>
+        {{task?.text}}
+      </td>
+      <td>
+        {{task?.isGlobal}}
+      </td>
+      <td>
+        {{task?.isLeader}}
+      </td>
+      <td >
+        {{task?.creator}}
+      </td>
+
+      <td (click)="edit(task)" title="you can change status">
+          <span id = 'status' [ngStyle]="{'background-color':getColor(task)}" *ngIf="task!==editTask" class="open-close-container">{{task.isCompleted}}</span>
+          <select id = "status2"   class="open-close-container" *ngIf="task===editTask" name="completionStatus" class="selectStatus" style="" [(ngModel)]="task.isCompleted" (ngModelChange)= 'update(task, ind)' >
+            <option *ngFor = "let status of statusList">{{status}}</option>
+          </select>
+      </td>
+      <td>
+          {{task?.start}}
+      </td>
+      <td>
+          {{task?.end}}
+      </td>
+  </tr>
+  </table>
+</div>
+
